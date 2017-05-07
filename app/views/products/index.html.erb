@@ -7,7 +7,7 @@
     <div class='product'>
       <p><%= link_to image_tag(product.image_url), product %></p>
       <p><%=h link_to truncate(product.title, length: 80), product %></p>
-      <p><%= product.price == "0" ? "No pricing info." : number_to_currency(product.price) %></p>
+      <p><%= link_to product.price == "0" ? "No pricing info." : number_to_currency(product.price), product %></p>
     </div>
   <% end %>
 </div>
