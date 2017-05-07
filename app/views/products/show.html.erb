@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<div class='product-details'>
+  <p id='title'><%= @product.title %></p>
+  <div id='desc'>
+    <strong>Description:</strong>
+    <% if @list && @desc %>
+      <%= @desc %>
+      <ul>
+        <% @list.each do |item| %>
+            <li><%= item %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= @product.description %>
+    <% end %>
+  </div>
+  <br>
+  <p><strong>View on <%= link_to 'Slickdeals', @product.link %></strong></p>
+
+  <br>
+  <%= link_to 'Back', products_path %>
+</div>
+
+<div id='img'><img src=<%= @product.image_url %>></div>
