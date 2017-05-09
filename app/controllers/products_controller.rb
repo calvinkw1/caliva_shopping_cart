@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     Product.retrieve_feed
     @products = Product.all
+    @order_item = current_order.order_items.new
   end
 
   # GET /products/1
@@ -14,9 +15,7 @@ class ProductsController < ApplicationController
     if @product.description.scan(/\[LIST\]/)
       list = @product.description.gsub(/\[LIST\]/, '').split('[*]')
       @desc = list.shift
-      @list = list.map do |item|
-        item.gsub(/\*(.*)\*/, '\1') # removing '<b>' and '</b>' tags from each item
-      end
+      @list = list.map {|item| item.gsub(/\*(.*)\*/, '\1')} # removing '*' from XML for bolding
     end
   end
 

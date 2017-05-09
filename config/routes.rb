@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  resources :products
-  get '/', to: 'products#index'
-  # calling retrieve_feed method from products#index so this is
-  # no longer needed unless you want to hit the feed method directly
-  # get '/feed', to: 'products#retrieve_feed' 
-  
-#         Prefix Verb   URI Pattern                  Controller#Action
-#     products GET    /products(.:format)          products#index
-#              POST   /products(.:format)          products#create
-#  new_product GET    /products/new(.:format)      products#new
-# edit_product GET    /products/:id/edit(.:format) products#edit
-#      product GET    /products/:id(.:format)      products#show
-#              PATCH  /products/:id(.:format)      products#update
-#              PUT    /products/:id(.:format)      products#update
-#              DELETE /products/:id(.:format)      products#destroy
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :products, only: [:show, :index]
+  resources :order_items, only: [:create, :update, :destroy]
+
+  get '/', to: 'products#index'
+  
+  get 'carts/show'
+
+#      Prefix Verb   URI Pattern                Controller#Action
+#    products GET    /products(.:format)        products#index
+#     product GET    /products/:id(.:format)    products#show
+# order_items POST   /order_items(.:format)     order_items#create
+#  order_item PATCH  /order_items/:id(.:format) order_items#update
+#             PUT    /order_items/:id(.:format) order_items#update
+#             DELETE /order_items/:id(.:format) order_items#destroy
+#             GET    /                          products#index
+#  carts_show GET    /carts/show(.:format)      carts#show
+
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CalivaShoppingCart</title>
+    <title>Caliva</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1><%= link_to "Caliva", '/' %></h1>
+        </div>
+        <div class="col-xs-6 text-right">
+          <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+        </div>
+      </div>
+      <hr>
+      <%= yield %>
+    </div>
   </body>
 </html>

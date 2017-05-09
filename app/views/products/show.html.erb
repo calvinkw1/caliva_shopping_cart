@@ -16,6 +16,11 @@
     <% end %>
   </div>
   <br>
+  <p>
+    Price: <strong><%=h @product.price == "0" ? "No pricing info." : number_to_currency(@product.price) %></strong>
+    <span><%= button_to 'Add To Cart', order_items_path(@product.id) %></span>
+  </p>
+  <br>
   <p><strong>View on <%= link_to 'Slickdeals', @product.link %></strong></p>
 
   <br>
