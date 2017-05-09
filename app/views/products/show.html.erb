@@ -15,12 +15,20 @@
       <%= @product.description %>
     <% end %>
   </div>
-  <br>
-  <p>
-    Price: <strong><%=h @product.price == "0" ? "No pricing info." : number_to_currency(@product.price) %></strong>
-    <span><%= button_to 'Add To Cart', order_items_path(@product.id) %></span>
-  </p>
-  <br>
+  <%= form_for @order_item, remote: true do |f| %>
+    <h4 class="text-right">Unit Price: 
+      <span style="color: green">
+        <%= @product.price == "0" ? "No pricing info." : number_to_currency(@product.price) %>
+      </span>
+    </h4>
+    <div class="input-group">
+        <%= f.number_field :quantity, value: 1, class: "form-control", min: 1 %>
+        <div class="input-group-btn">
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.submit "Add to cart", class: "btn btn-primary" %>
+        </div>
+    </div>
+  <% end %>
   <p><strong>View on <%= link_to 'Slickdeals', @product.link %></strong></p>
 
   <br>

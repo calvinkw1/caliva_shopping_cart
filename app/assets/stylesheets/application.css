@@ -13,3 +13,11 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+.logoImage img {
+    height: auto;
+    max-height: 100px;
+    width: auto;
+    max-width: 100%;
+}
