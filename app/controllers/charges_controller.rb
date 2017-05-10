@@ -6,9 +6,10 @@ class ChargesController < ApplicationController
 
   def create
     order = current_order
+    @order_id = order.id
     # Amount in cents
     @amount = (order.subtotal.to_f * 100).truncate
-
+    
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source  => params[:stripeToken]
@@ -18,7 +19,7 @@ class ChargesController < ApplicationController
       :customer    => customer.id,
       :amount      => @amount,
       :description => 'Rails Stripe customer',
-      :currency    => 'usd'
+      :currency    => 'usd',
     )
     
     session.clear

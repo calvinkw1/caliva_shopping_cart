@@ -1,12 +1,7 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-6">
-      <h1 class='logoImage'>
-      <%= link_to image_tag("https://static1.squarespace.com/static/556c8a61e4b0a58d63e16051/t/58ed4d106a4963f6bd94c008/1493848692317/?format=1500w"), '/' %>
-      </h1>
-    </div>
-    <h2>Thanks, you paid <strong>$<%= @amount.to_f/100 %></strong>!</h2>
+<div>
+    <h2>Thanks, you paid <strong><%=h number_to_currency(@amount.to_f/100) %></strong>!</h2>
+    <h2>Your Order number is: <%= @order_id %></h2>
   </div>
+  <button type="button" class="btn btn-primary"><%= link_to 'Shop again?', '/' %></button>
   <hr>
-  <%= yield %>
 </div>

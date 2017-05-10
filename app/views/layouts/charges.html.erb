@@ -1,7 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <title>Caliva</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
   <body>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <h1 class='logoImage'>
+          <%= link_to image_tag("https://static1.squarespace.com/static/556c8a61e4b0a58d63e16051/t/58ed4d106a4963f6bd94c008/1493848692317/?format=1500w"), '/' %>
+          </h1>
+        </div>
+      </div>
+      <hr>
+      <%= yield %>
+    </div>
   </body>
 </html>
