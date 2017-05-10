@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
 
+  attr_reader :order
+
   def current_order
     if session[:order_id] != nil
       Order.find session[:order_id]
@@ -9,4 +11,5 @@ class ApplicationController < ActionController::Base
       Order.new
     end
   end
+
 end

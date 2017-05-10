@@ -18,6 +18,11 @@
         </div>
         <div class="col-xs-6 text-right">
           <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+          <div>
+            <%= form_for @order, method: :get, url: order_show_path do |f| %>
+              <%= f.number_field :order_item_ids %>
+            <% end %>
+          </div>
         </div>
       </div>
       <hr>

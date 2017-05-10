@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'order/show', to: 'order#show'
+
   resources :products, only: [:show, :index]
   resources :order_items, only: [:create, :update, :destroy]
   resources :charges

@@ -1,0 +1,8 @@
+<div class="order-list">
+  <button type="button" class="btn btn-primary"><%= link_to 'Back to Products', '/' %></button>
+  <br>
+  <br>
+  <% @order_items.each do |order_item| %>
+    <%= render 'order_list', product: order_item.product, order_item: order_item, show_total: true %>
+  <% end %>
+</div>

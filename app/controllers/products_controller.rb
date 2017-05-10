@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     Product.retrieve_feed
     @products = Product.all
     @order_item = current_order.order_items.new
+    @order = Order.new
   end
 
   # GET /products/1
