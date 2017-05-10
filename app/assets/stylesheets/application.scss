@@ -14,10 +14,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// body {
+//   background-image: url(https://static1.squarespace.com/static/556c8a61e4b0a58d63e16051/56c26932c6fc08a1ad2b770c/589baffa37c58162f7a6411c/1486598139679/DSC_2949.jpg?format=2500w);
+//   background-repeat: no-repeat;
+//   background-attachment: fixed;
+//   background-position: center; 
+//   background-size: 100%;
+// }
 
 .logoImage img {
     height: auto;
     max-height: 100px;
     width: auto;
     max-width: 100%;
+}
+
+.row .col-xs-4 img {
+  width: 100%;
+}
+
+#checkout {
+  font-size: 2em;
+  margin-bottom: 15%;
+}
+
+button a {
+  color: white;
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
 }
