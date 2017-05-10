@@ -20,7 +20,7 @@
           <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
           <div>
             <%= form_for Order.new, method: :get, url: order_show_path do |f| %>
-              Look up existing order number: <%= f.number_field :order_item_ids %>
+              Look up existing order number: <%= f.number_field :order_item_ids, required: true %>
               <%= f.submit 'Find Order', class: "btn btn-primary" %>
             <% end %>
           </div>
