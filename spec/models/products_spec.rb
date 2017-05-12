@@ -3,10 +3,6 @@ require 'pry'
 
 RSpec.describe Product, type: :model do  
 
-  before :each do 
-
-    prod = Product.new
-
     product = {
       title: "Test Title",
       description: "Test description",
@@ -14,8 +10,6 @@ RSpec.describe Product, type: :model do
       image_url: "https://www.google.com/test.jpg",
       link: "https://www.google.com/test"
     }
-
-  end
 
   it 'creates a new product' do
     expect(Product.create(product)).to be_truthy
