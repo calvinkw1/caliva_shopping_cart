@@ -11,7 +11,6 @@ class Product < ApplicationRecord
     url = 'https://slickdeals.net/newsearch.php?mode=frontpage&searcharea=deals&searchin=first&rss=1'
     rss = RSS::Parser.parse url, true
     rss.items.each do |item|
-      binding.pry
       price = extract_price_from_title item.title
       product = {
         title: item.title,
