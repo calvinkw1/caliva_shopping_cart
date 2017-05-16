@@ -3,7 +3,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
 
   def subtotal
-    order_items.collect {|item| item.valid? ? (item.quantity * item.unit_price) : 0 }.sum
+    order_items.map {|item| item.valid? ? (item.quantity * item.unit_price) : 0 }.sum
   end
 
 

@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
+  get '/', to: 'products#index'
   get 'order/show', to: 'order#show'
+  get 'carts/show'
 
   resources :products, only: [:show, :index]
   resources :order_items, only: [:create, :update, :destroy]
   resources :charges
-
-  get '/', to: 'products#index'
-  
-  get 'carts/show'
 
 #      Prefix Verb   URI Pattern                 Controller#Action
 #    products GET    /products(.:format)         products#index

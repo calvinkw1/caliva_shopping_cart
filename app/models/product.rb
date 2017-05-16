@@ -19,7 +19,7 @@ class Product < ApplicationRecord
         image_url: item.content_encoded.scan(/(?<=src\=\")(.*thumb)/)[0][0], # grabbing thumbnail image from encoded data. this was also not easily referenced in xml doc from Slickdeals
         link: item.link
       }
-      Product.create product unless product_exists? product
+      save_to_db product
     end
   end
 
@@ -27,6 +27,10 @@ class Product < ApplicationRecord
     price = title.scan(/\$[0-9]+(?:\.[0-9]{2})?|free/i)[0] # extract price from title as RSS feed XML doesn't have "Price" node
     price ? price[0] = '' : price = "0" # removing '$' from price for easier conversion to currency format later (number_to_currency method to be used in view)
     return price
+  end
+
+  def self.save_to_db product
+    Product.create product unless product_exists? product
   end
 
   def self.product_exists? product
